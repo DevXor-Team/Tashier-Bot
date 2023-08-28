@@ -5,8 +5,9 @@ from pymongo.mongo_client import MongoClient
 from discord.ext import commands
 from datetime import datetime
 import json
+import os
 
-uri = "mongodb+srv://mhmdabas899:12345@rmbot.oldn9s2.mongodb.net/?retryWrites=true&w=majority"
+uri = os.environ['mongo_url']
 client = MongoClient(uri)
 db = client["Database"]
 colliction = db["tashher"]
@@ -117,5 +118,5 @@ async def remove_user(ctx:discord.ApplicationContext, user:discord.User):
         colliction.delete_one(check)
         await ctx.respond(f"**{user.mention} successfully deleted from the database :white_check_mark:**")
 
-bot.run("MTAzNTQzMDgzODE1MTY5MjMyOA.Gr1gSs.fOkuQf-q5edWxV4Wv2EU05BP5tWefXbTiDTMnU")
+bot.run(os.environ["token"])
 
