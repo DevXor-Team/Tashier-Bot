@@ -120,3 +120,4 @@ async def remove_user(ctx:discord.ApplicationContext, user:discord.User):
 
 bot.run(os.environ["token"])
 
+print("NIRO WAS HERE")
